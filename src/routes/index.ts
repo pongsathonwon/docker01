@@ -1,16 +1,5 @@
 import { Router } from "express";
-import {
-  createContact,
-  deleteContact,
-  getAllContact,
-  getContactById,
-  updateContact,
-} from "../controller";
+import { contactRoute } from "./contacts.routes";
 
-export const contactRoute = Router();
-
-contactRoute.get("/", getAllContact);
-contactRoute.get("/:id", getContactById);
-contactRoute.post("/", createContact);
-contactRoute.put("/:id", updateContact);
-contactRoute.delete("/:id", deleteContact);
+export const appRoute = Router()
+appRoute.use("/contacts", contactRoute)
